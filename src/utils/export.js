@@ -1,0 +1,1 @@
+export default import.meta.env.VITE_OPENAI_KEY_URBAN_OASIS;
