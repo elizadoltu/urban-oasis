@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Counter from "../custom/counter";
+import Counter from "../custom/counter.js";
 
 const questionSchema = new mongoose.Schema({
     questionId: { type: Number, index: true },

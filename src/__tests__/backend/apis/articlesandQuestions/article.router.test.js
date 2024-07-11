@@ -1,47 +1,51 @@
-import request from 'supertest';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import path from 'path';
-import fs from 'fs';
-import app from '../../../../server/services/articlesAndQuestions/server';
 import Article from '../../../../server/database/models/Article';
+import upload from '../../../../server/database/custom/multer'; 
+import { createArticle } from '../../../../server/services/articlesAndQuestions/routes/articles/articles.controller';
 
-dotenv.config();
+jest.mock("../../../../server/database/models/Article");
+jest.mock("../../../../server/database/custom/multer", () => jest.fn((req, res, callback) => callback()));
 
-describe('Article Routes', () => {
-    beforeAll(async () => {
-        await mongoose.connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-    });
+describe('createArticle', () => {
+  let mockReq, mockRes;
 
-    afterAll(async () => {
-        await mongoose.connection.close();
-    });
+  beforeEach(() => {
+    mockReq = { body: {}, file: null };
+    mockRes = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn().mockReturnThis(),
+    };
+  });
 
-    afterEach(async () => {
-        await Article.deleteMany({});
-    });
+  test('should create an article successfully', async () => {
+    Article.mockImplementation(() => ({
+      save: jest.fn().mockResolvedValue(true),
+    }));
+    mockReq.body = { id: '1', title: 'Test', author: 'Author', description: 'Description', email: 'email@example.com', username: 'username' };
+    mockReq.file = { filename: 'test.jpg' };
 
-    it('should create a new article', async () => {
-        const testImagePath = path.join(__dirname, '..', '..', 'test_image.jpg');
-        fs.writeFileSync(testImagePath, 'Test image content'); 
+    await createArticle(mockReq, mockRes);
 
-        const response = await request(app)
-            .post('/api/articles')
-            .field('id', '1')
-            .field('title', 'Test Title')
-            .field('author', 'Test Author')
-            .field('description', 'Test Description')
-            .field('email', 'test@example.com')
-            .field('username', 'testuser')
-            .attach('photo', testImagePath);
+    expect(mockRes.status).toHaveBeenCalledWith(201);
+    expect(mockRes.json).toHaveBeenCalledWith(expect.objectContaining({ message: 'Article created successfully' }));
+  });
 
-        fs.unlinkSync(testImagePath); 
+  test('should handle file upload error', async () => {
+    upload.mockImplementationOnce((req, res, callback) => callback('Upload error'));
 
-        expect(response.status).toBe(201);
-        expect(response.body).toHaveProperty('message', 'Article created successfully');
-        expect(response.body.article).toHaveProperty('title', 'Test Title');
-    });
+    await createArticle(mockReq, mockRes);
+
+    expect(mockRes.status).toHaveBeenCalledWith(400);
+    expect(mockRes.json).toHaveBeenCalledWith({ message: 'Upload error' });
+  });
+
+  test('should handle database error', async () => {
+    Article.mockImplementation(() => ({
+      save: jest.fn().mockRejectedValue(new Error('Database error')),
+    }));
+
+    await createArticle(mockReq, mockRes);
+
+    expect(mockRes.status).toHaveBeenCalledWith(500);
+    expect(mockRes.json).toHaveBeenCalledWith(expect.objectContaining({ message: 'Error creating article' }));
+  });
 });

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from 'bcryptjs';
-import Counter from "../custom/counter";
+import Counter from "../custom/counter.js";
 
 const userSchema = new mongoose.Schema({
     userId: { type: Number, index: true },

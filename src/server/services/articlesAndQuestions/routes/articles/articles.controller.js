@@ -1,5 +1,5 @@
-import Article from "../../../../database/models/Article";
-import upload from "../../../../database/custom/multer";
+import Article from "../../../../database/models/Article.js";
+import upload from "../../../../database/custom/multer.js";
 
 export const createArticle = (req, res) => {
     upload(req, res, async (err) => {
