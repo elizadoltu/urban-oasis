@@ -1,10 +1,10 @@
-# Urban Green Spaces
+# Urban Oasis
 
-Welcome to the Urban Green Spaces project! This project aims to create a multi-page web application to showcase urban green spaces, gardening tips, community stories, and more, with a minimalist design for a better user experience (UX) and user interface (UI).
+Welcome to the Urban Oasis project! This project aims to create a multi-page web application to showcase urban green spaces, gardening tips, community stories, and more, with a minimalist design for a better user experience (UX) and user interface (UI).
 
 ## Project Overview
 
-Urban Green Spaces is designed to:
+Urban Oasis is designed to:
 
 - Highlight urban green spaces and their benefits.
 - Provide gardening tips and resources.
@@ -15,7 +15,7 @@ Urban Green Spaces is designed to:
 
 The initial commit and foundational work for this project can be found at the following repository:
 
-[Urban Green Spaces Initial Commit](https://github.com/elizadoltu/urban-green-spaces)
+[Urban Oasis Initial Commit](https://github.com/elizadoltu/urban-green-spaces)
 
 ## Current Development
 
@@ -47,7 +47,7 @@ We welcome contributions to enhance the project! Please fork the repository, mak
 
 ## Documentation
 
-For official documentation and updates on Urban Green Spaces, please refer to our [Notion Documentation](https://outstanding-rest-134.notion.site/Urban-Green-Spaces-Urban-Oasis-9d40953eda984f67939a81ab8984f5ab?pvs=74). The documentation will be updated regularly to reflect changes and improvements in the application.
+For official documentation and updates on Urban Oasis, please refer to our [Notion Documentation](https://outstanding-rest-134.notion.site/Urban-Green-Spaces-Urban-Oasis-9d40953eda984f67939a81ab8984f5ab?pvs=74). The documentation will be updated regularly to reflect changes and improvements in the application.
 
 ## License
 
