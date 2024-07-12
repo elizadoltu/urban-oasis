@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Montage';
+    src: url('../../font/Montage-Demo.ttf') format('truetype');
+}
+
+:root {
+    --background-color: #F4F5F0;
+    --font-color: #18181A;
+    --green: #005D43;
+    --footer-color: #E2EAEB;
+    --footer-color-rgba: rgba(226, 234, 235, 0.5);
+    --answer-background: #E7E9E7;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
