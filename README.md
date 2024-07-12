@@ -45,6 +45,10 @@ The project is structured into various sections for easy navigation and developm
 
 We welcome contributions to enhance the project! Please fork the repository, make your changes, and submit a pull request.
 
+## Documentation
+
+For official documentation and updates on Urban Green Spaces, please refer to our [Notion Documentation](https://outstanding-rest-134.notion.site/Urban-Green-Spaces-Urban-Oasis-9d40953eda984f67939a81ab8984f5ab?pvs=74). The documentation will be updated regularly to reflect changes and improvements in the application.
+
 ## License
 
 This project is licensed under the MIT License.
@@ -54,6 +58,7 @@ This project is licensed under the MIT License.
 For further inquiries or contributions, please feel free to reach out via the Contact Page.
 
 Thank you for your interest in Urban Green Spaces! We look forward to your contributions and feedback.
+
 
 
 # React + Vite
