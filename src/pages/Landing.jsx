@@ -10,11 +10,8 @@ import becomeAMember2 from "../assets/images/landing/become-a-member-2.png";
 import becomeAMember3 from "../assets/images/landing/become-a-member-3.png";
 import becomeAMember4 from "../assets/images/landing/become-a-member-4.png";
 import officialLogo from "../assets/svg/official-logo.svg";
-import facebookIcon from "../assets/svg/facebook.svg";
-import instagramIcon from "../assets/svg/instagram.svg";
-import twitterIcon from "../assets/svg/twitter.svg";
-import threadsIcon from "../assets/svg/threads.svg";
 import useScrollToTop from "../custom/hooks/scrollToTop";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
 //   useScrollToTop();
@@ -160,7 +157,7 @@ const LandingPage = () => {
           </p>
         </div>
       </div>
-      <div id="become-a-member" className="w-full h-screen">
+      <div id="become-a-member" className="w-full auto">
         <div className="h-1px bg-font opacity-30 mt-28"></div>
         <div className="flex justify-evenly items-center mt-28">
           <div className="flex items-center">
@@ -195,6 +192,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
